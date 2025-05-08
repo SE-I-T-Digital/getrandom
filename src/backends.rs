@@ -140,10 +140,8 @@ cfg_if! {
                 mod wasi_p2;
                 pub use wasi_p2::*;
             } else {
-                compile_error!(
-                    "Unknown version of WASI (only previews 1 and 2 are supported) \
-                    or Rust version older than 1.80 was used"
-                );
+                mod wasi_p2;
+                pub use wasi_p2::*;
             }
         }
     } else if #[cfg(target_os = "hermit")] {
